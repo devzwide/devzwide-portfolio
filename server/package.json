@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Bukeka Nxumalo portfolio server application",
+  "homepage": "https://github.com/devzwide/devzwide-portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/devzwide/devzwide-portfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devzwide/devzwide-portfolio.git"
+  },
+  "license": "MIT",
+  "author": "Bukeka Nxumalo",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google/genai": "^1.5.0",
+    "@modelcontextprotocol/sdk": "^1.12.3",
+    "dotenv": "^16.5.0"
+  }
+}
