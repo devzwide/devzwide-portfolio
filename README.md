@@ -24,7 +24,13 @@ devzwide-portfolio/
     ├── .gitignore
     └── src/
         ├── main.jsx
-        └── router.jsx
+        ├── router.jsx
+        ├── Index.jsx
+        ├── pages/
+        │   └── Home.jsx
+        └── components/
+            ├── Header.jsx
+            └── Footer.jsx
 ```
 
 ---
@@ -53,7 +59,7 @@ A minimal Node.js backend using the [@google/genai](https://www.npmjs.com/packag
 
 ## Web Frontend (`web/`)
 
-A React 19 app bootstrapped with Vite.
+A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
 
 - **index.html**  
   The HTML entry point with a root div and script loading `src/main.jsx`.
@@ -62,19 +68,31 @@ A React 19 app bootstrapped with Vite.
   Renders the React app using `createRoot` and sets up routing with `RouterProvider`.
 
 - **src/router.jsx**  
-  Sets up a React Router v7 browser router (currently with no routes defined).
+  Sets up a React Router v7 browser router with a root layout (`Index.jsx`) and a `Home` page.
+
+- **src/Index.jsx**  
+  Root layout component that includes the `Header`, an `Outlet` for nested routes, and the `Footer`.
+
+- **src/pages/Home.jsx**  
+  Placeholder for the home page content.
+
+- **src/components/Header.jsx**  
+  Responsive navigation bar using Headless UI and Heroicons, with links to sections, blog, resume, and social profiles.
+
+- **src/components/Footer.jsx**  
+  Simple footer with copyright.
+
+- **assets/styles/styles.css**  
+  Imports Tailwind CSS.
 
 - **vite.config.js**  
-  Configures Vite to use the React plugin.
+  Configures Vite to use the React and Tailwind plugins.
 
 - **eslint.config.js**  
   ESLint configuration for React and hooks, using recommended rules.
 
 - **package.json**  
-  Declares dependencies: React, ReactDOM, React Router DOM v7, Vite, ESLint, and related plugins.
-
-- **README.md**  
-  Basic info about the React + Vite setup and ESLint recommendations.
+  Declares dependencies: React, ReactDOM, React Router DOM v7, Vite, ESLint, Tailwind CSS, and related plugins.
 
 ---
 
@@ -111,10 +129,13 @@ A React 19 app bootstrapped with Vite.
 ## Notes
 
 - **Routing:**  
-  The frontend router is set up but currently has no routes. Add routes to `web/src/router.jsx` as needed.
+  The frontend router is set up with a root layout and a home page. Add more routes to `web/src/router.jsx` and corresponding components as needed.
 
 - **API Integration:**  
   The server currently only logs Gemini API responses. To connect the frontend and backend, implement API endpoints in the server and fetch them from the React app.
+
+- **Styling:**  
+  Tailwind CSS is used for styling. Update `web/src/assets/styles/styles.css` and use Tailwind utility classes in your components.
 
 - **Linting:**  
   ESLint is configured for React best practices. Run `npm run lint` in the `web` directory to check code quality.
