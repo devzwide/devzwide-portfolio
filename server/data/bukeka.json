@@ -1,0 +1,43 @@
+{
+    "name": "Bukeka",
+    "surname": "Nxumalo",
+    "email": "nxumalobukeka4@gmail.com",
+    "username": "devzwide",
+    "nickname": "Zwide",
+    "location": "Durban, South Africa",
+    "avatar": "https://avatars.githubusercontent.com/u/123456789?v=4",
+    "github": "https://github.com/devzwide",
+    "linkedin": "https://www.linkedin.com/in/devzwide/",
+    "medium": "https://medium.com/@devzwide",
+    "title": "ICT Student | Aspiring Software & Cloud Engineer",
+    "bio": "Third-year Bachelor of Information and Communication Technology student at Durban University of Technology. Building web/mobile apps with Node backend. Passionate about cloud, AI, and documenting my learning.",
+    "career_goal": "Become a Software Engineer → AI Cloud Engineer",
+    "tech_stack": {
+        "languages": ["JavaScript", "Python", "SQL", "C#", "Java", "Kotlin", "HTML", "CSS"],
+        "databases": ["PostgreSQL", "MySQL", "MongoDB"],
+        "mobile": ["Jetpack Compose", "React Native"],
+        "web": ["Node.js", "Express", "React", "Flask", "ASP.NET", "Tailwind CSS"],
+        "version_control": ["Git", "GitHub"],
+        "os": ["Linux", "Windows"],
+        "design": ["Figma"],
+        "methodologies": ["Agile", "Scrum"],
+        "frameworks": ["Node.js", "React", "Flask", "ASP.NET", "Flutter"],
+        "tools": ["VS Code", "Visual Studio", "Android Studio", "Postman"]
+    },
+    "projects": [
+        {
+            "name": "Campus Security App",
+            "description": "Group mobile-native app project using Kotlin + Jetpack Compose",
+            "status": "Done",
+            "repository": "https://github.com/iangovender/PBDV_SecurityApp"
+        },
+        {
+            "name": "Peer Tutoring Platform",
+            "description": "Group Web app built with Flask",
+            "status": "Done",
+            "repository": "https://github.com/levs2424/PBDV-PROJECT",
+            "link": "https://iangov1706.pythonanywhere.com/"
+        }
+    ],
+    "content_style": "Casual, no sugarcoating, detailed explanations"
+}

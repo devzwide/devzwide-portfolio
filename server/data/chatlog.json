@@ -1,0 +1,72 @@
+[
+  {
+    "from": "user",
+    "text": "Sorry...",
+    "timestamp": "2025-06-14T06:09:05.824Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:09:32.370Z"
+  },
+  {
+    "from": "user",
+    "text": "H",
+    "timestamp": "2025-06-14T06:10:23.398Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:12:24.682Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:14:11.301Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:17:41.322Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:18:07.570Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:20:06.309Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:24:24.096Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:27:55.220Z"
+  },
+  {
+    "from": "bot",
+    "text": "Sorry, I couldn't respond.",
+    "timestamp": "2025-06-14T06:27:55.641Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:28:29.688Z"
+  },
+  {
+    "from": "bot",
+    "text": "Sorry, I couldn't respond.",
+    "timestamp": "2025-06-14T06:28:30.991Z"
+  },
+  {
+    "from": "user",
+    "text": "Hi",
+    "timestamp": "2025-06-14T06:29:19.925Z"
+  }
+]

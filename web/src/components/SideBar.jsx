@@ -12,7 +12,7 @@ const products = [
 
 const SideBar = () => {
     return (
-        <Card className="h-[calc(90vh)] flex flex-col justify-between w-full max-w-[20rem] p-4">
+        <Card className="h-[calc(90vh)] flex flex-col justify-between w-full max-w-[20rem] p-2">
             <div>
                 <div className="mb-2 p-4">
                     <Typography variant="h5" color="blue-gray">

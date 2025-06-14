@@ -1,6 +1,6 @@
 # Bukeka Nxumalo (devzwide) Portfolio
 
-This repository contains a **React + Vite** frontend and a minimal **Node.js server** for Bukeka Nxumalo's portfolio.
+This repository contains a **React + Vite** frontend and a minimal **Node.js Express server** for Bukeka Nxumalo's portfolio, featuring a Gemini-powered chatbot.
 
 ---
 
@@ -15,7 +15,13 @@ devzwide-portfolio/
 │   ├── package.json
 │   ├── .env
 │   ├── .gitignore
-│   └── server.js
+│   ├── server.js
+│   ├── router.js
+│   ├── controller/
+│   │   └── gemini.controller.js
+│   └── data/
+│       ├── bukeka.json
+│       └── chatlog.json
 └── web/
     ├── package.json
     ├── vite.config.js
@@ -42,22 +48,35 @@ devzwide-portfolio/
 
 ## Server (`server/`)
 
-A minimal Node.js backend using the [@google/genai](https://www.npmjs.com/package/@google/genai) SDK.
+A Node.js Express backend that powers the chatbot using the [@google/genai](https://www.npmjs.com/package/@google/genai) SDK.
 
 - **server.js**  
-  Loads an API key from `.env`, initializes the Google GenAI client, and generates a short explanation of AI using Gemini 2.0 Flash.
-  - Loads environment variables with `dotenv`.
-  - Uses `@google/genai` to call the Gemini API.
-  - Logs the response to the console.
+  Main entry point. Loads environment variables, sets up CORS and JSON parsing, and mounts the router.
+
+- **router.js**  
+  Defines API endpoints:
+  - `POST /chat` — Handles chat requests, responds with Gemini-generated answers as Bukeka.
+  - `POST /chatlog` — Logs chat messages to `data/chatlog.json`.
+
+- **controller/gemini.controller.js**  
+  - `chatWithGemini`: Reads the user profile from `data/bukeka.json`, crafts a prompt, and queries Gemini 2.0 Flash.
+  - `saveChat`: Appends chat messages to `data/chatlog.json`.
+
+- **data/bukeka.json**  
+  Contains Bukeka's profile, skills, and projects. Used to personalize Gemini responses.
+
+- **data/chatlog.json**  
+  Stores chat history between users and the bot.
 
 - **.env**  
-  Stores the Gemini API key:
+  Stores environment variables:
   ```
+  SERVER_PORT=8000
   GEMINI_API_KEY=...
   ```
 
 - **package.json**  
-  Lists dependencies: `@google/genai`, `@modelcontextprotocol/sdk`, and `dotenv`.
+  Key dependencies: `express`, `@google/genai`, `dotenv`, `cors`, `nodemon`.
 
 ---
 
@@ -66,28 +85,32 @@ A minimal Node.js backend using the [@google/genai](https://www.npmjs.com/packag
 A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
 
 - **index.html**  
-  The HTML entry point with a root div and script loading `src/main.jsx`.
+  HTML entry point, loads the React app.
 
 - **src/main.jsx**  
-  Renders the React app using `createRoot` and sets up routing with `RouterProvider`.
+  Renders the app and sets up routing.
 
 - **src/router.jsx**  
-  Sets up a React Router v7 browser router with a root layout (`Index.jsx`) and a `Home` page.
+  Configures React Router v7 with a root layout (`Index.jsx`) and a `Home` page.
 
 - **src/Index.jsx**  
-  Root layout component that includes the `Header`, an `Outlet` for nested routes, and the `Footer`.
+  Root layout with `Header`, an `Outlet` for nested routes, and (optionally) `Footer`.
 
 - **src/pages/Home.jsx**  
-  Home page that displays the `SideBar` and `ChatBot` components side by side.
+  Home page displaying the `SideBar` and `ChatBot` components side by side.
 
 - **src/pages/ChatBot.jsx**  
-  Simple chatbot UI with message history and input. (Bot logic can be extended to connect to the backend.)
+  Chatbot UI:
+    - Sends user messages to `/chat` endpoint.
+    - Logs all messages to `/chatlog`.
+    - Displays Gemini-powered responses as Bukeka.
+    - Shows loading state and error handling.
 
 - **src/components/Header.jsx**  
   Responsive navigation bar using Headless UI and Heroicons, with links to sections, blog, resume, and social profiles.
 
 - **src/components/Footer.jsx**  
-  Simple footer with copyright.
+  Simple footer.
 
 - **src/components/SideBar.jsx**  
   Sidebar navigation with section links and user profile.
@@ -96,13 +119,13 @@ A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
   Imports Tailwind CSS.
 
 - **vite.config.js**  
-  Configures Vite to use the React and Tailwind plugins.
+  Configures Vite with React and Tailwind plugins.
 
 - **eslint.config.js**  
-  ESLint configuration for React and hooks, using recommended rules.
+  ESLint configuration for React and hooks.
 
 - **package.json**  
-  Declares dependencies: React, ReactDOM, React Router DOM v7, Vite, ESLint, Tailwind CSS, Material Tailwind, Headless UI, Heroicons, and related plugins.
+  Key dependencies: React 19, React Router DOM v7, Tailwind CSS 4, Material Tailwind, Headless UI, Heroicons, React Markdown, etc.
 
 ---
 
@@ -111,47 +134,69 @@ A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
 ### Server
 
 1. Install dependencies:
-   ```
+   ```sh
    cd server
    npm install
    ```
-2. Add your Gemini API key to `.env`.
-3. Run the server:
+2. Add your Gemini API key and port to `.env`.
+3. Start the server:
+   ```sh
+   npm run dev
    ```
-   node server.js
-   ```
+   The server runs on [http://localhost:8000](http://localhost:8000).
 
 ### Web
 
 1. Install dependencies:
-   ```
+   ```sh
    cd web
    npm install
    ```
 2. Start the development server:
-   ```
+   ```sh
    npm run dev
    ```
 3. Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
+## Features
+
+- **Chatbot:**  
+  - Powered by Gemini 2.0 Flash, responds as Bukeka using profile data.
+  - All messages are logged to the backend.
+  - Extendable for more advanced AI or analytics.
+
+- **Profile & Projects:**  
+  - Profile and project data are stored in `server/data/bukeka.json`.
+  - Easily updateable for new skills or projects.
+
+- **Modern Stack:**  
+  - React 19, Vite, Tailwind CSS 4, Material Tailwind, Headless UI, Heroicons.
+  - ESLint for code quality.
+
+- **API Integration:**  
+  - `/chat` endpoint for AI responses.
+  - `/chatlog` endpoint for logging.
+
+---
+
 ## Notes
 
 - **Routing:**  
-  The frontend router is set up with a root layout and a home page. Add more routes to `web/src/router.jsx` and corresponding components as needed.
+  Add more routes in [`web/src/router.jsx`](web/src/router.jsx) and corresponding components as needed.
 
 - **ChatBot:**  
-  The chatbot UI is implemented in `web/src/pages/ChatBot.jsx`. Extend its logic to connect with backend endpoints for AI-powered responses.
+  Extend logic in [`web/src/pages/ChatBot.jsx`](web/src/pages/ChatBot.jsx) for richer conversation or analytics.
 
 - **API Integration:**  
-  The server currently only logs Gemini API responses. To connect the frontend and backend, implement API endpoints in the server and fetch them from the React app.
+  The backend is ready for more endpoints (e.g., for projects, profile, etc.).
 
 - **Styling:**  
-  Tailwind CSS is used for styling. Update `web/src/assets/styles/styles.css` and use Tailwind utility classes in your components.
+  Use Tailwind utility classes and update [`web/src/assets/styles/styles.css`](web/src/assets/styles/styles.css) as needed.
 
 - **Linting:**  
-  ESLint is configured for React best practices. Run `npm run lint` in the `web` directory to check code quality.
+  Run `npm run lint` in the `web` directory to check code quality.
 
 ---
 
