@@ -1,6 +1,6 @@
 # Bukeka Nxumalo (devzwide) Portfolio
 
-This repository contains a **React + Vite** frontend and a simple **Node.js server** for Bukeka Nxumalo's portfolio.
+This repository contains a **React + Vite** frontend and a minimal **Node.js server** for Bukeka Nxumalo's portfolio.
 
 ---
 
@@ -27,10 +27,15 @@ devzwide-portfolio/
         ├── router.jsx
         ├── Index.jsx
         ├── pages/
-        │   └── Home.jsx
+        │   ├── Home.jsx
+        │   └── ChatBot.jsx
         └── components/
             ├── Header.jsx
-            └── Footer.jsx
+            ├── Footer.jsx
+            └── SideBar.jsx
+        └── assets/
+            └── styles/
+                └── styles.css
 ```
 
 ---
@@ -41,7 +46,6 @@ A minimal Node.js backend using the [@google/genai](https://www.npmjs.com/packag
 
 - **server.js**  
   Loads an API key from `.env`, initializes the Google GenAI client, and generates a short explanation of AI using Gemini 2.0 Flash.
-
   - Loads environment variables with `dotenv`.
   - Uses `@google/genai` to call the Gemini API.
   - Logs the response to the console.
@@ -74,13 +78,19 @@ A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
   Root layout component that includes the `Header`, an `Outlet` for nested routes, and the `Footer`.
 
 - **src/pages/Home.jsx**  
-  Placeholder for the home page content.
+  Home page that displays the `SideBar` and `ChatBot` components side by side.
+
+- **src/pages/ChatBot.jsx**  
+  Simple chatbot UI with message history and input. (Bot logic can be extended to connect to the backend.)
 
 - **src/components/Header.jsx**  
   Responsive navigation bar using Headless UI and Heroicons, with links to sections, blog, resume, and social profiles.
 
 - **src/components/Footer.jsx**  
   Simple footer with copyright.
+
+- **src/components/SideBar.jsx**  
+  Sidebar navigation with section links and user profile.
 
 - **assets/styles/styles.css**  
   Imports Tailwind CSS.
@@ -92,7 +102,7 @@ A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
   ESLint configuration for React and hooks, using recommended rules.
 
 - **package.json**  
-  Declares dependencies: React, ReactDOM, React Router DOM v7, Vite, ESLint, Tailwind CSS, and related plugins.
+  Declares dependencies: React, ReactDOM, React Router DOM v7, Vite, ESLint, Tailwind CSS, Material Tailwind, Headless UI, Heroicons, and related plugins.
 
 ---
 
@@ -130,6 +140,9 @@ A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
 
 - **Routing:**  
   The frontend router is set up with a root layout and a home page. Add more routes to `web/src/router.jsx` and corresponding components as needed.
+
+- **ChatBot:**  
+  The chatbot UI is implemented in `web/src/pages/ChatBot.jsx`. Extend its logic to connect with backend endpoints for AI-powered responses.
 
 - **API Integration:**  
   The server currently only logs Gemini API responses. To connect the frontend and backend, implement API endpoints in the server and fetch them from the React app.
