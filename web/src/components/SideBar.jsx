@@ -1,13 +1,14 @@
-import { AcademicCapIcon, BriefcaseIcon, CodeBracketSquareIcon, ClipboardDocumentIcon, UserIcon, Bars3Icon, BuildingOfficeIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { AcademicCapIcon, BriefcaseIcon, CodeBracketSquareIcon, HomeIcon, UserIcon, ChatBubbleBottomCenterTextIcon, BuildingOfficeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Card, Typography, List, ListItem, ListItemPrefix, } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const products = [
-    { name: 'Introduction', href: '#', icon: ClipboardDocumentIcon },
-    { name: 'About Me', href: '#', icon: UserIcon },
-    { name: 'Projects', href: '#', icon: BriefcaseIcon },
-    { name: 'Skills & Tools', href: '#', icon: CodeBracketSquareIcon },
-    { name: 'Experience', href: '#', icon: BuildingOfficeIcon },
-    { name: 'Education', href: '#', icon: AcademicCapIcon },
+    { name: 'Home', href: '/', icon: HomeIcon },
+    { name: 'My Assistant', href: '/chat', icon: ChatBubbleBottomCenterTextIcon },
+    { name: 'About Me', href: '/about', icon: UserIcon },
+    { name: 'Projects', href: '/projects', icon: BriefcaseIcon },
+    { name: 'Skills & Tools', href: '/skills', icon: CodeBracketSquareIcon },
+    { name: 'Journey', href: '/journey', icon: AcademicCapIcon },
 ]
 
 const SideBar = () => {
@@ -22,12 +23,14 @@ const SideBar = () => {
                 <List>
                     {
                         products.map((product) => (
-                            <ListItem key={product.name} className="flex items-center gap-2">
-                                <ListItemPrefix>
-                                    <product.icon className="h-5 w-5" />
-                                </ListItemPrefix>
-                                {product.name}
-                            </ListItem>
+                            <Link to={product.href} key={product.name}>
+                                <ListItem className="flex items-center gap-2 hover:text-blue-300">
+                                    <ListItemPrefix>
+                                        <product.icon className="h-5 w-5" />
+                                    </ListItemPrefix>
+                                    {product.name}
+                                </ListItem>
+                            </Link>
                         ))
                     }
                 </List>

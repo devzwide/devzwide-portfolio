@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { Dialog, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel, Popover, PopoverButton, PopoverGroup, PopoverPanel, } from "@headlessui/react";
-import { AcademicCapIcon, BriefcaseIcon, CodeBracketSquareIcon, ClipboardDocumentIcon, UserIcon, Bars3Icon, BuildingOfficeIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { AcademicCapIcon, BriefcaseIcon, CodeBracketSquareIcon, UserIcon, Bars3Icon, BuildingOfficeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from "@heroicons/react/20/solid";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const products = [
-    { name: 'Introduction', description: 'A quick overview of my portfolio.', href: '#', icon: ClipboardDocumentIcon },
-    { name: 'About Me', description: 'My background, passions, what drives me.', href: '#', icon: UserIcon },
-    { name: 'Projects', description: 'A showcase of my development work.', href: '#', icon: BriefcaseIcon },
-    { name: 'Skills & Tools', description: 'Breakdown of the tech stack I am proficient in.', href: '#', icon: CodeBracketSquareIcon },
-    { name: 'Experience', description: 'My experience and personal development.', href: '#', icon: BuildingOfficeIcon },
-    { name: 'Education', description: 'My academic background and current studies.', href: '#', icon: AcademicCapIcon },
+    { name: 'About Me', description: 'My background, passions, what drives me.', href: '/about', icon: UserIcon },
+    { name: 'Projects', description: 'A showcase of my development work.', href: '/projects', icon: BriefcaseIcon },
+    { name: 'Skills & Tools', description: 'Breakdown of the tech stack I am proficient in.', href: '/skills', icon: CodeBracketSquareIcon },
+    { name: 'Journey', description: 'My personal and professional journey.', href: '/journey', icon: AcademicCapIcon },
 ]
 
 const callsToAction = [
@@ -26,14 +25,14 @@ const Header = () => {
         <header className="bg-white">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8">
                 <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5">
+                    <Link to="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Developer Zwide</span>
                         <img
-                        alt="/"
-                        src="/zwide_logo.png"
-                        className="h-8 w-auto"
+                            alt="Developer Zwide"
+                            src="/zwide_logo.png"
+                            className="h-8 w-auto"
                         />
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -46,70 +45,74 @@ const Header = () => {
                     </button>
                 </div>
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-                    <a href="/" target="_blank" className="text-sm/6 font-semibold text-gray-900">
+                    <Link to="/" className="text-sm/6 font-semibold text-gray-900">
                         Home
-                    </a>
+                    </Link>
                     <Popover className="relative">
                         <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                        Services
-                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                            Services
+                            <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
                         </PopoverButton>
 
                         <PopoverPanel
-                        transition
-                        className="absolute top-full -left-8 z-50 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+                            transition
+                            className="absolute top-full -left-8 z-50 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                         >
-                        <div className="p-4">
-                            {products.map((item) => (
-                            <div
-                                key={item.name}
-                                className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
-                            >
-                                <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
-                                </div>
-                                <div className="flex-auto">
-                                <a href={item.href} className="block font-semibold text-gray-900">
-                                    {item.name}
-                                    <span className="absolute inset-0" />
-                                </a>
-                                <p className="mt-1 text-gray-600">{item.description}</p>
-                                </div>
+                            <div className="p-4">
+                                {
+                                    products.map((item) => (
+                                        <div
+                                            key={item.name}
+                                            className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
+                                        >
+                                            <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                                <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                                            </div>
+                                            <div className="flex-auto">
+                                                <Link to={item.href} className="block font-semibold text-gray-900">
+                                                    {item.name}
+                                                    <span className="absolute inset-0" />
+                                                </Link>
+                                                <p className="mt-1 text-gray-600">{item.description}</p>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
-                            ))}
-                        </div>
-                        <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                            {callsToAction.map((item) => (
-                            <a
-                                key={item.name}
-                                href={item.href}
-                                className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
-                            >
-                                <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
-                                {item.name}
-                            </a>
-                            ))}
-                        </div>
+                            <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                                {
+                                    callsToAction.map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            to={item.href}
+                                            className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
+                                        >
+                                            <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                                            {item.name}
+                                        </Link>
+                                    ))
+                                }
+                            </div>
                         </PopoverPanel>
                     </Popover>
 
-                    <a href="https://medium.com/@devzwide" target="_blank" className="text-sm/6 font-semibold text-gray-900">
+                    <Link to="https://medium.com/@devzwide" target="_blank" className="text-sm/6 font-semibold text-gray-900">
                         Blog
-                    </a>
-                    <a href="/resume" target="_blank" className="text-sm/6 font-semibold text-gray-900">
+                    </Link>
+                    <Link to="/resume" className="text-sm/6 font-semibold text-gray-900">
                         Resume
-                    </a>
+                    </Link>
                 </PopoverGroup>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="https://github.com/devzwide" className="text-sm/6 mx-2 font-semibold text-gray-900">
+                    <Link to="https://github.com/devzwide" target="_blank" className="text-sm/6 mx-2 font-semibold text-gray-900">
                         <FaGithub />
-                    </a>
-                    <a href="https://www.linkedin.com/in/devzwide" className="text-sm/6 mx-2 font-semibold text-gray-900">
+                    </Link>
+                    <Link to="https://www.linkedin.com/in/devzwide"  target="_blank" className="text-sm/6 mx-2 font-semibold text-gray-900">
                         <FaLinkedin />
-                    </a>
-                    <a href="https://medium.com/@devzwide" className="text-sm/6 mx-2 font-semibold text-gray-900">
+                    </Link>
+                    <Link to="https://medium.com/@devzwide" target="_blank" className="text-sm/6 mx-2 font-semibold text-gray-900">
                         <FaMedium />
-                    </a>
+                    </Link>
                 </div>
             </nav>
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
