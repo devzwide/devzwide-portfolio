@@ -126,7 +126,7 @@ const ShuffleGrid = () => {
 
 const Introduction = () => {
     return (
-        <div className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+        <div className="h-full w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 max-w-6xl mx-auto">
             <div>
                 <span className="block mb-4 text-xs md:text-sm text-blue-300 font-medium">
                     Developer Zwide
@@ -137,7 +137,7 @@ const Introduction = () => {
                 <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
                     I'm a driven ICT student blending academic hustle with real-world grit, on a mission to become a badass Software Engineer and future AI Cloud mastermind.
                 </p>
-                <PrimaryButton link="/about" name="About Me" className="mt-4"/>
+                <PrimaryButton link="/about" name="About Me" className="mt-8"/>
             </div>
             <ShuffleGrid />
         </div>

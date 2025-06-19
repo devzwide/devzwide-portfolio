@@ -43,6 +43,142 @@ const Cards = () => {
         left="40%"
         className="w-48 md:w-72"
       />
+
+      <Card
+        containerRef={containerRef}
+        src="https://education.oracle.com/file/general/p-80-java.png"
+        alt="Java"
+        rotate="-5deg"
+        top="15%"
+        left="70%"
+        className="w-32 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        alt="JavaScript"
+        rotate="3deg"
+        top="30%"
+        left="10%"
+        className="w-28 md:w-44"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png"
+        alt="Kotlin"
+        rotate="-8deg"
+        top="65%"
+        left="20%"
+        className="w-24 md:w-40"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+        alt="Python"
+        rotate="5deg"
+        top="70%"
+        left="50%"
+        className="w-30 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://miro.medium.com/v2/resize:fit:1400/0*dCizVio-KCpBqxLD.png"
+        alt="C#"
+        rotate="-3deg"
+        top="25%"
+        left="80%"
+        className="w-20 md:w-36"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg"
+        alt="CSS3"
+        rotate="7deg"
+        top="60%"
+        left="75%"
+        className="w-24 md:w-40"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
+        alt="HTML5"
+        rotate="-4deg"
+        top="40%"
+        left="15%"
+        className="w-28 md:w-44"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg"
+        alt="Markdown"
+        rotate="2deg"
+        top="75%"
+        left="30%"
+        className="w-20 md:w-32"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://cdn.worldvectorlogo.com/logos/dot-net-core-7.svg"
+        alt=".Net"
+        rotate="-7deg"
+        top="55%"
+        left="85%"
+        className="w-24 md:w-40"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png"
+        alt="Express.js"
+        rotate="4deg"
+        top="35%"
+        left="30%"
+        className="w-32 md:w-52"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg"
+        alt="Flask"
+        rotate="-2deg"
+        top="65%"
+        left="60%"
+        className="w-28 md:w-44"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg"
+        alt="NodeJS"
+        rotate="6deg"
+        top="50%"
+        left="25%"
+        className="w-32 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg"
+        alt="MongoDB"
+        rotate="-6deg"
+        top="60%"
+        left="40%"
+        className="w-28 md:w-44"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg"
+        alt="Postgres"
+        rotate="3deg"
+        top="75%"
+        left="80%"
+        className="w-24 md:w-40"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"
+        alt="Git"
+        rotate="-4deg"
+        top="55%"
+        left="10%"
+        className="w-24 md:w-36"
+      />
     </div>
   );
 };

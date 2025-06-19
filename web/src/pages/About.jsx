@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const About = () => {
     return (
         <motion.div className="p-8">
-            <AboutTextParallelContent content={
+            <AboutTextParallelContent image="/zwide_about.jpg" content={
                 <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
                     <h2 className="col-span-1 text-3xl font-bold md:col-span-4">
                         Hi, I’m Zwide — future Software Engineer & AI Cloud Engineer.

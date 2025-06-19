@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
-import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
-import { SiGithub, SiTiktok, SiYoutube } from "react-icons/si";
-import { FaTwitter } from "react-icons/fa";
+import { SiGithub, SiLinkedin } from "react-icons/si";
+import ProjectCard from "../components/ui/ProjectCard.jsx";
 
 const Block = ({ className, ...rest }) => {
     return (
@@ -50,67 +49,6 @@ const HeaderBlock = () => (
     </Block>
 );
 
-const SocialsBlock = () => (
-    <>
-        <Block
-        whileHover={{
-            rotate: "2.5deg",
-            scale: 1.1,
-        }}
-        className="col-span-6 bg-red-500 md:col-span-3"
-        >
-        <a
-            href="#"
-            className="grid h-full place-content-center text-3xl text-white"
-        >
-            <SiYoutube />
-        </a>
-        </Block>
-        <Block
-        whileHover={{
-            rotate: "-2.5deg",
-            scale: 1.1,
-        }}
-        className="col-span-6 bg-green-600 md:col-span-3"
-        >
-        <a
-            href="#"
-            className="grid h-full place-content-center text-3xl text-white"
-        >
-            <SiGithub />
-        </a>
-        </Block>
-        <Block
-        whileHover={{
-            rotate: "-2.5deg",
-            scale: 1.1,
-        }}
-        className="col-span-6 bg-zinc-50 md:col-span-3"
-        >
-        <a
-            href="#"
-            className="grid h-full place-content-center text-3xl text-black"
-        >
-            <SiTiktok />
-        </a>
-        </Block>
-        <Block
-        whileHover={{
-            rotate: "2.5deg",
-            scale: 1.1,
-        }}
-        className="col-span-6 bg-blue-500 md:col-span-3"
-        >
-        <a
-            href="#"
-            className="grid h-full place-content-center text-3xl text-white"
-        >
-            <FaTwitter />
-        </a>
-        </Block>
-    </>
-);
-
 const Projects = () => {
     return (
         <div className="min-h-screen px-4 py-12 text-zinc-50">
@@ -120,11 +58,12 @@ const Projects = () => {
                 transition={{
                     staggerChildren: 0.05,
                 }}
-                className="mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4"
+                className="mx-auto max-w-full"
             >
                 <HeaderBlock />
-                <SocialsBlock />
             </motion.div>
+
+            <ProjectCard />
         </div>
     );
 };

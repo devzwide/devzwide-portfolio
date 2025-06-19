@@ -34,11 +34,18 @@ devzwide-portfolio/
         ├── Index.jsx
         ├── pages/
         │   ├── Home.jsx
-        │   └── ChatBot.jsx
+        │   ├── ChatBot.jsx
+        │   ├── About.jsx
+        │   ├── Education.jsx
+        │   └── Introduction.jsx
         └── components/
             ├── Header.jsx
             ├── Footer.jsx
-            └── SideBar.jsx
+            ├── SideBar.jsx
+            └── ui/
+                ├── AboutTextParallelContent.jsx
+                ├── PrimaryCard.jsx
+                └── PrimaryButton.jsx
         └── assets/
             └── styles/
                 └── styles.css
@@ -91,7 +98,7 @@ A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
   Renders the app and sets up routing.
 
 - **src/router.jsx**  
-  Configures React Router v7 with a root layout (`Index.jsx`) and a `Home` page.
+  Configures React Router v7 with a root layout (`Index.jsx`) and main pages.
 
 - **src/Index.jsx**  
   Root layout with `Header`, an `Outlet` for nested routes, and (optionally) `Footer`.
@@ -105,6 +112,16 @@ A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
     - Logs all messages to `/chatlog`.
     - Displays Gemini-powered responses as Bukeka.
     - Shows loading state and error handling.
+    - The send button and user bubble use a circular, gradient style for visual consistency.
+
+- **src/pages/About.jsx**  
+  About page with animated introduction and profile content.
+
+- **src/pages/Education.jsx**  
+  Education page (currently under construction).
+
+- **src/pages/Introduction.jsx**  
+  Introduction page with image gallery and personal highlights.
 
 - **src/components/Header.jsx**  
   Responsive navigation bar using Headless UI and Heroicons, with links to sections, blog, resume, and social profiles.
@@ -114,6 +131,9 @@ A React 19 app bootstrapped with Vite and styled using Tailwind CSS.
 
 - **src/components/SideBar.jsx**  
   Sidebar navigation with section links and user profile.
+
+- **src/components/ui/**  
+  UI components for About section, cards, and buttons.
 
 - **assets/styles/styles.css**  
   Imports Tailwind CSS.
