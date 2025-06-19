@@ -147,7 +147,7 @@ const Content = () => {
 const Journey = () => {
   return (
     <motion.div className="p-8">
-      <AboutTextParallelContent image="/zwide_about.jpg" content={
+      <AboutTextParallelContent image="/8.jpg" content={
           <Content />
       }/>
       
